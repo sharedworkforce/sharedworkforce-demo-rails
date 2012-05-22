@@ -23,6 +23,18 @@ Run bundle install to install required gems:
   Your bundle is complete!
 ```
 
+Setup the database:
+
+```term
+  $ rake db:setup
+  -- create_table("users", {:force=>true})
+    -> 0.0042s
+  -- initialize_schema_migrations_table()
+    -> 0.0040s
+  -- assume_migrated_upto_version(20120327110249)
+    -> 0.0056s
+```
+
 ## Running the demo app
 
 To try this demo app, you will need your own API key from Shared Workforce. To get one, visit http://www.sharedworkforce.com or email erica@sharedworkforce.com.
@@ -46,7 +58,6 @@ S3_BUCKET=my-s3-bucket
 Once you have entered your details, run the app using Foreman:
 
 ```term
-  $ rake db:setup
   $ foreman start
 ```
 
