@@ -63,4 +63,4 @@ Once you have entered your details, run the app using Foreman:
 
 ## Creating a user
 
-Visit `http://localhost:5000` and follow the link to create a users. Once the photo is uploaded, it will be sent to Shared Workforce for moderation. If you leave your local app running, it will wait for a response for the task and moderate the photo. (Note that if you stop the server before the task is completed, you won't see the response in your local app.) Typically it will take anything from a couple of minutes to an hour for your task to be completed.
+Visit `http://localhost:5000` and follow the link to create a user. Enter a username and choose a photo. Once the photo is uploaded, it will be sent to Shared Workforce for moderation. If you leave your local app running, it will wait for a response for the task and moderate the photo. (Note that if you stop the server before the task is completed, you won't see the response in your local app). Typically it will take anything from a couple of minutes to an hour for your task to be completed.
