@@ -1,4 +1,6 @@
 ENV["RAILS_ENV"] = "test"
+ENV['S3_BUCKET'] = 'test'
+
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
