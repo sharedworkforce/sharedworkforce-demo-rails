@@ -55,7 +55,7 @@ S3_SECRET=my-s3-secret
 S3_BUCKET=my-s3-bucket
 ```
 
-Once you have entered your details, run the app using Foreman:
+Once you have entered your details, start the app using Foreman.
 
 ```term
   $ foreman start
