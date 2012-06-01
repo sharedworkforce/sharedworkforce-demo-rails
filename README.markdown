@@ -37,7 +37,23 @@ Setup the database:
 
 ## Running the demo app
 
-To try this demo app, you will need your own API key from Shared Workforce. To get one, visit http://www.sharedworkforce.com or email erica@sharedworkforce.com.
+To try this demo app, you will need your own API key from Shared Workforce. If you are using Heroku, see the next section, otherwise visit http://www.sharedworkforce.com or email erica@sharedworkforce.com.
+
+### Heroku users
+
+If you are using Heroku, you can add Shared Workforce to your app:
+
+```term
+  $ heroku addons:add sharedworkforce
+  -----> Adding sharedworkforce to ratchet-screwdriver-trees-4005... done, v18 (free)
+```
+
+And get your API key:
+
+```term
+  $ heroku config | grep SHAREDWORKFORCE_API_KEY
+  SHAREDWORKFORCE_API_KEY => acdc30b2-14c5-46ee-ba35-11d50edc65ec
+```
 
 Once you have your API key, rename the file .env_template to .env, and add your Shared Workforce API key.
 
