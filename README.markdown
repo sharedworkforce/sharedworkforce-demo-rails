@@ -39,8 +39,6 @@ Setup the database:
 
 To try this demo app, you will need your own API key from Shared Workforce. If you are using Heroku, see the next section, otherwise visit http://www.sharedworkforce.com or email erica@sharedworkforce.com.
 
-### Heroku users
-
 If you are using Heroku, you can add Shared Workforce to your app:
 
 ```term
