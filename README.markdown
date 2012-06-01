@@ -37,14 +37,23 @@ Setup the database:
 
 ## Running the demo app
 
-If you are using Heroku, you can add Shared Workforce to your app:
+If you are using Heroku, you can use the Shared Workforce addon:
+
+Create an app:
+
+```term
+  $ heroku create --app cedar
+  $ Creating ratchet-screwdriver-trees-4005... done, stack is cedar
+```
+
+Add the Shared Workforce addon:
 
 ```term
   $ heroku addons:add sharedworkforce
   -----> Adding sharedworkforce to ratchet-screwdriver-trees-4005... done, v18 (free)
 ```
 
-And get your API key:
+Get your API key from the app's config:
 
 ```term
   $ heroku config | grep SHAREDWORKFORCE_API_KEY
