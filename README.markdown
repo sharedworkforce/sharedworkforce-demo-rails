@@ -37,8 +37,6 @@ Setup the database:
 
 ## Running the demo app
 
-To try this demo app, you will need your own API key from Shared Workforce. If you are using Heroku, see the next section, otherwise visit http://www.sharedworkforce.com or email erica@sharedworkforce.com.
-
 If you are using Heroku, you can add Shared Workforce to your app:
 
 ```term
@@ -52,6 +50,8 @@ And get your API key:
   $ heroku config | grep SHAREDWORKFORCE_API_KEY
   SHAREDWORKFORCE_API_KEY => acdc30b2-14c5-46ee-ba35-11d50edc65ec
 ```
+
+Note: If you are not using Heroku and you would like to try Shared Workforce, visit http://www.sharedworkforce.com or email erica@sharedworkforce.com.
 
 Once you have your API key, rename the file .env_template to .env, and add your Shared Workforce API key.
 
