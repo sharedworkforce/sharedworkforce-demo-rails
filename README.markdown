@@ -43,7 +43,7 @@ Create an app:
 
 ```term
   $ heroku create --app cedar
-  $ Creating ratchet-screwdriver-trees-4005... done, stack is cedar
+  Creating ratchet-screwdriver-trees-4005... done, stack is cedar
 ```
 
 Add the Shared Workforce addon:
