@@ -42,7 +42,7 @@ If you are using Heroku, you can use the Shared Workforce addon:
 Create an app:
 
 ```term
-  $ heroku create --app cedar
+  $ heroku create --stack cedar
   Creating ratchet-screwdriver-trees-4005... done, stack is cedar
 ```
 
