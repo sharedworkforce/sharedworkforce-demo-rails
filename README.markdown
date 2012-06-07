@@ -4,6 +4,8 @@ This is an example Rails app that shows how to tag a photo using Shared Workforc
 
 The app has a user model which includes a photo. When a cat is created, the image is sent to Shared Workforce where it is tagged, rotated and cropped by a human worker.
 
+You can view a live sandbox demo of the app at http://catsify.herokuapp.com
+
 The task classes are in `app/tasks`, and there are associated example unit tests in `test/tasks`
 
 ## Installation
