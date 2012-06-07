@@ -84,3 +84,14 @@ Once you have entered your API key, start the app using Foreman.
 ## Creating a cat
 
 Visit `http://localhost:5000` and follow the link to create a cat with an image url. Once the cat is saved, it will be sent to Shared Workforce for moderation. If you leave your local app running, it will wait for a response for the task and moderate the photo. (Note that if you stop the server before the task is completed, you won't see the response in your local app). Typically it will take anything from a couple of minutes to an hour for your task to be completed.
+
+## Deploying to Heroku
+
+To deploy the app on Heroku, simply deploy in the normal way.
+
+```term
+  $ git push heroku master
+  $ heroku run rake db:migrate
+  $ heroku restart
+  $ heroku open
+```
