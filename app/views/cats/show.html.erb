@@ -1,32 +1,50 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Description:</b>
+  <b>Original description:</b>
   <%= @cat.description %>
 </p>
 
 <p>
   <b>Improved description:</b>
-  <%= @cat.improved_description %>
+  <%= @cat.improved_description || 'Pending.' %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%= @cat.tags || 'Pending' %>
 </p>
 
 <p>
   <b>Photo:</b><br />
-  <%= image_tag @cat.image_url if @cat.image_url%>
+  <%= image_tag @cat.image_url if @cat.image_url %>
 </p>
 
-<p>
-	<b>Upside down photo</b><br />
-	<%= image_tag @cat.rotated_image_url if @cat.rotated_image_url%>
-</p>
+<% unless @cat.rejected? %>
+	<p>
+		<b>Upside down photo</b><br />
+		<% if @cat.rotated_image_url %>
+			<%= image_tag @cat.rotated_image_url %>
+		<% else %>
+		  Pending.
+		<% end %>
+	</p>
 
-<p>
-	<b>Cropped photo</b><br />
-	<%= image_tag @cat.cropped_image_url if @cat.cropped_image_url %>
-</p>
-
-<% @cat.audits.each do |a| %>
-	<%= a.created_at %>: <%= a.comment %><br />
+	<p>
+		<b>Cropped photo</b><br />
+		<% if @cat.cropped_image_url %>
+			<%= image_tag @cat.cropped_image_url %>
+		<% else %>
+		  Pending.
+		<% end %>
+	</p>
 <% end %>
 
+<p>Cat created at <%= @cat.created_at.to_s(:short) %>
+	<ol>
+		<% @cat.audits.each do |a| %>
+			<li><%= distance_of_time_in_words(a.created_at, a.cat.created_at) %> later: <%= a.comment %></li>
+		<% end %>
+	</ol>
+</p>
 <%= link_to 'Back', cats_path %>
