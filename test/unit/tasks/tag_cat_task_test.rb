@@ -34,7 +34,7 @@ class TagCatTaskTest < ActiveSupport::TestCase
 		task = TagCatTask.new @cat
 		task.tag_cat(@cat, [{:answer=>TagCatTask::ACCEPT.first}])
 		assert_match /#{TagCatTask::ACCEPT.first}/, @cat.audits.last.comment
-		ImrpoveDescriptionOfCatTask.expects(:create).with(@cat)
+		ImproveDescriptionOfCatTask.expects(:create).with(@cat)
 	end
 
 end
