@@ -12,17 +12,17 @@
 
 <p>
   <b>Photo:</b><br />
-  <%= image_tag @cat.image_url %>
+  <%= image_tag @cat.image_url if @cat.image_url%>
 </p>
 
 <p>
 	<b>Upside down photo</b><br />
-	<%= image_tag @cat.rotated_image_url %>
+	<%= image_tag @cat.rotated_image_url if @cat.rotated_image_url%>
 </p>
 
 <p>
 	<b>Cropped photo</b><br />
-	<%= image_tag @cat.cropped_image_url %>
+	<%= image_tag @cat.cropped_image_url if @cat.cropped_image_url %>
 </p>
 
 <% @cat.audits.each do |a| %>
