@@ -3,6 +3,7 @@ class Cat < ActiveRecord::Base
   has_many :audits
   after_save :tag_image, :if=>:image_url_changed?
   scope :finished, where('cropped_image_url IS NOT NULL')
+  scope :rejected, where(:rejected => true)
 
   def tag_image
   	TagCatTask.create(self)

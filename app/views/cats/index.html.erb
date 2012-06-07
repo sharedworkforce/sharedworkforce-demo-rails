@@ -10,3 +10,11 @@
   <% end %>
 </div>
 
+<h2>Rejected cats</h2>
+<div>
+  <% @cats.rejected.each do |cat| %>
+    <%= link_to cat do %>
+      <%= image_tag(cat.cropped_image_url) %>
+    <% end %>
+  <% end %>
+</div>
