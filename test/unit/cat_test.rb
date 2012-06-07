@@ -6,7 +6,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "tag cat when created" do
-  	cat = Cat.new
+  	cat = FactoryGirl.build(:cat)
   	cat.expects(:tag_cat).once
   	cat.save!
   end

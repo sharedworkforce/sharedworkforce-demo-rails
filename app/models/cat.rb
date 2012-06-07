@@ -5,6 +5,9 @@ class Cat < ActiveRecord::Base
   scope :finished, where('cropped_image_url IS NOT NULL')
   scope :rejected, where(:rejected => true)
 
+  validates :description, :presence=>true
+  validates :image_url, :presence=>true
+
   def tag_image
   	TagCatTask.create(self)
   end

@@ -2,6 +2,8 @@
 
 one:
   description: MyString
+  image_url: http://example.com/fixture_image.jpg
 
 two:
   description: MyString
+  image_url: http://example.com/fixture_image.jpg
