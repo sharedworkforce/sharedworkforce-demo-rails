@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
 gem 'sqlite3'
-gem "paperclip", "~> 3.0"
-gem 'aws-sdk', '~> 1.3.4'
 gem 'shared_workforce', '~> 0.2.2'
 gem 'jquery-rails'
 

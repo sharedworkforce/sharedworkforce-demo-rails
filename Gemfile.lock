@@ -29,13 +29,7 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
-    aws-sdk (1.3.9)
-      httparty (~> 0.7)
-      json (~> 1.4)
-      nokogiri (>= 1.4.4)
-      uuidtools (~> 2.1)
     builder (3.0.0)
-    cocaine (0.2.1)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -52,9 +46,6 @@ GEM
       factory_girl (~> 3.2.0)
       railties (>= 3.0.0)
     hike (1.2.1)
-    httparty (0.8.3)
-      multi_json (~> 1.0)
-      multi_xml
     i18n (0.6.0)
     journey (1.0.3)
     jquery-rails (2.0.2)
@@ -70,14 +61,6 @@ GEM
     mocha (0.11.4)
       metaclass (~> 0.0.1)
     multi_json (1.3.5)
-    multi_xml (0.5.1)
-    nokogiri (1.5.2)
-    paperclip (3.0.4)
-      activemodel (>= 3.0.0)
-      activerecord (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (>= 0.0.2)
-      mime-types
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -129,18 +112,15 @@ GEM
     uglifier (1.2.4)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
-    uuidtools (2.1.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (~> 1.3.4)
   coffee-rails (~> 3.2.1)
   factory_girl_rails
   jquery-rails
   mocha
-  paperclip (~> 3.0)
   rails (= 3.2.2)
   sass-rails (~> 3.2.3)
   shared_workforce (~> 0.2.2)

@@ -11,17 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327110249) do
+ActiveRecord::Schema.define(:version => 20120606162507) do
 
-  create_table "users", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.text     "comments"
+  create_table "audits", :force => true do |t|
+    t.integer  "cat_id"
+    t.text     "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "audits", ["cat_id"], :name => "index_audits_on_cat_id"
+
+  create_table "cats", :force => true do |t|
+    t.text     "description"
+    t.text     "improved_description"
+    t.text     "tags"
+    t.text     "image_url"
+    t.text     "rotated_image_url"
+    t.text     "cropped_image_url"
+    t.boolean  "rejected"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
 end

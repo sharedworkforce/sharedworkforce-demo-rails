@@ -1,0 +1,12 @@
+<h1>Listing cats</h1>
+
+<p><%= link_to 'New cat', new_cat_path %></p>
+
+<div>
+  <% @cats.finished.each do |cat| %>
+    <%= link_to cat do %>
+      <%= image_tag(cat.cropped_image_url) %>
+    <% end %>
+  <% end %>
+</div>
+

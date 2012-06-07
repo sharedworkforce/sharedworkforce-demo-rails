@@ -1,4 +1,4 @@
 SwDemo::Application.routes.draw do
-  resources :users
-  root :to => 'users#index'
+  resources :cats, :except => [:destroy, :edit, :update]
+  root :to => 'cats#index'
 end

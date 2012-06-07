@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @cat.description %>
+</p>
+
+<p>
+  <b>Improved description:</b>
+  <%= @cat.improved_description %>
+</p>
+
+<p>
+  <b>Photo:</b><br />
+  <%= image_tag @cat.image_url %>
+</p>
+
+<p>
+	<b>Upside down photo</b><br />
+	<%= image_tag @cat.rotated_image_url %>
+</p>
+
+<p>
+	<b>Cropped photo</b><br />
+	<%= image_tag @cat.cropped_image_url %>
+</p>
+
+<% @cat.audits.each do |a| %>
+	<%= a.created_at %>: <%= a.comment %><br />
+<% end %>
+
+<%= link_to 'Back', cats_path %>

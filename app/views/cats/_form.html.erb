@@ -1,0 +1,27 @@
+<%= form_for @cat, :html => { :multipart => true } do |f| %>
+  <% if @cat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cat.errors.count, "error") %> prohibited this cat from being saved:</h2>
+
+      <ul>
+      <% @cat.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :image_url, "Find the URL of a cat photo and paste it here." %> (<a href="http://www.flickr.com/search/?q=cute+cat&s=rec">Flickr cats</a>)<br />
+    <%= f.text_field :image_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, "Roughly descibe a cat in a few words (e.g. four legs, tail, fluffy)" %><br />
+    <%= f.text_area :description, :rows=>4 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
