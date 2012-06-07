@@ -17,4 +17,7 @@
       <%= image_tag(cat.cropped_image_url) %>
     <% end %>
   <% end %>
+  <% if @cats.rejected.empty? %>
+    <p>None</p>
+  <% end %>
 </div>
