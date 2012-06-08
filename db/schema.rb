@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120608140353) do
+ActiveRecord::Schema.define(:version => 20120608193800) do
 
   create_table "audits", :force => true do |t|
     t.integer  "cat_id"
@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(:version => 20120608140353) do
     t.text     "image_url"
     t.text     "rotated_image_url"
     t.text     "cropped_image_url"
-    t.boolean  "rejected"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.boolean  "rejected",             :default => false, :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.string   "notification_email"
   end
 
