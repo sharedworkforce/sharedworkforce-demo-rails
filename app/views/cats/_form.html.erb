@@ -12,8 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :image_url, "Find the URL of a cat photo and paste it here." %> (<a href="http://www.flickr.com/search/?q=cute+cat&s=rec">Flickr cats</a>)<br />
-    <%= f.text_field :image_url %>
+    <%= f.label :image_url, "Find the URL of a cat photo and paste it here." %> (<a id="random-cat" href="#">Or get a random one</a>)<br />
+    <%= f.text_field :image_url, :size=>60 %>
+  </div>
+
+  <div>
+    <img style="width: 120px" id="chosen-image" />
   </div>
 
   <div class="field">
@@ -25,3 +29,31 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+  $('#random-cat').click(function(){
+    var possible_tags = ['cute', 'evil', 'fluffy', 'soft']
+    var tags = possible_tags[Math.floor(Math.random()*possible_tags.length)];
+    tags = "cat," + tags;
+    $.getJSON("http://api.flickr.com/services/rest/?api_key=e526bf2a1595886d42e8ab3e5bcc02a1&license=4&method=flickr.photos.search&tags=" + tags + "&tag_mode=all&format=json&jsoncallback=?", pickImage);
+  });
+
+      
+  function pickImage(data) {
+    var image = data.photos.photo[Math.floor(Math.random()*data.photos.photo.length)];
+
+    $.getJSON("http://api.flickr.com/services/rest/?api_key=e526bf2a1595886d42e8ab3e5bcc02a1&method=flickr.photos.getSizes&photo_id=" + image.id +"image&format=json&jsoncallback=?", setImage);
+  }
+
+  function setImage(data) {
+    sizes = $.grep(data.sizes.size, function(s) {
+      return s.width > 400;
+    });
+    $('#cat_image_url').attr("value", sizes[0].source);
+    $('#chosen-image').attr("src", sizes[0].source);
+  }
+
+  $('#cat_image_url').change(function() {
+    $('#chosen-image').attr("src", $('#cat_image_url').value);
+  });
+</script>
