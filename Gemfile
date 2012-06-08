@@ -12,7 +12,8 @@ group :assets do
 end
 
 group :development do
-	gem "letter_opener"
+	gem 'foreman'
+	gem 'letter_opener'
 end
 
 group :test, :development do
