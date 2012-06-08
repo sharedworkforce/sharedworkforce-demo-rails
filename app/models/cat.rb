@@ -6,7 +6,7 @@ class Cat < ActiveRecord::Base
 
   scope :finished, where('cropped_image_url IS NOT NULL')
   scope :rejected, where(:rejected => true)
-  scope :pending, where('rejected = ? AND cropped_image_url IS NOT NULL', false)
+  scope :pending, where('rejected = ? AND cropped_image_url IS NULL', false)
 
   validates :description, :presence=>true
   validates :image_url, :presence=>true
