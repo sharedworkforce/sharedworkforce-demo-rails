@@ -3,21 +3,15 @@
 <p><%= link_to 'New cat', new_cat_path %></p>
 
 <div>
-  <% @cats.finished.each do |cat| %>
-    <%= link_to cat do %>
-      <%= image_tag(cat.cropped_image_url) %>
-    <% end %>
-  <% end %>
+  <%= render :partial=>'cats', :locals=>{:cats=>@cats.finished} %>
+</div>
+
+<h2>Pending cats</h2>
+<div>
+  <%= render :partial=>'cats', :locals=>{:cats=>@cats.pending} %>
 </div>
 
 <h2>Rejected cats</h2>
 <div>
-  <% @cats.rejected.each do |cat| %>
-    <%= link_to cat do %>
-      <%= image_tag(cat.image_url, :style=>'width: 50px;') %>
-    <% end %>
-  <% end %>
-  <% if @cats.rejected.empty? %>
-    <p>None</p>
-  <% end %>
+  <%= render :partial=>'cats', :locals=>{:cats=>@cats.rejected} %>
 </div>

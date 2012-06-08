@@ -1,0 +1,8 @@
+  <% cats.each do |cat| %>
+    <%= link_to cat do %>
+      <%= image_tag(cat.image_url, :style=>'width: 50px;') %>
+    <% end %>
+  <% end %>
+  <% if cats.empty? %>
+    <p>None.</p>
+  <% end %>

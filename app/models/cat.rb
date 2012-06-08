@@ -4,6 +4,7 @@ class Cat < ActiveRecord::Base
   after_save :tag_image, :if=>:image_url_changed?
   scope :finished, where('cropped_image_url IS NOT NULL')
   scope :rejected, where(:rejected => true)
+  scope :pending, where('rejected = ? AND cropped_image_url IS NOT NULL', false)
 
   validates :description, :presence=>true
   validates :image_url, :presence=>true
