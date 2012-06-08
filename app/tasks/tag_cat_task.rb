@@ -1,12 +1,12 @@
 class TagCatTask
 	include SharedWorkforce::Task
 
-	REJECT = ["Not a cat", "More than one cat"]
+	REJECT = ["not a cat", "more than one cat", "photo did not load"]
 	ACCEPT = ["fluffy", "soft", "cute", "rough", "scary", "evil"]
 
 	title "Tag this cat"
 	instruction "Tick all that apply"
-	
+
 	answer_options REJECT + ACCEPT
 	answer_type :tags
 
