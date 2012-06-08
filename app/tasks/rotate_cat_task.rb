@@ -1,7 +1,8 @@
 class RotateCatTask
 	include SharedWorkforce::Task
 
-	title "Make this cat upside down"
+	title "Flip a cat"
+	instruction "Make this cat upside down."
 	guidelines "* Simply continue if the cat is already upside down"
 
 	answer_type :rotate

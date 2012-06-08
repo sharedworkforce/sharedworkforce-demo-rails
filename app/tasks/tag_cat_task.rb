@@ -5,6 +5,8 @@ class TagCatTask
 	ACCEPT = ["fluffy", "soft", "cute", "rough", "scary", "evil"]
 
 	title "Tag this cat"
+	instruction "Tick all that apply"
+	
 	answer_options REJECT + ACCEPT
 	answer_type :tags
 

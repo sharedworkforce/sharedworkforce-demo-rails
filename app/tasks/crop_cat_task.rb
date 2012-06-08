@@ -1,7 +1,8 @@
 class CropCatTask
 	include SharedWorkforce::Task
 
-	title "Crop around the eyes, as closely as you can"
+	title "Crop the cat's eyes"
+	instruction "Crop around the eyes, as closely as you can"
 
 	answer_type :crop
 
