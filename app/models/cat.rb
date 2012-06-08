@@ -10,6 +10,7 @@ class Cat < ActiveRecord::Base
 
   validates :description, :presence=>true
   validates :image_url, :presence=>true
+  validates :image_url, :format => { :with => /\.(png|jpg|gif)$/, :message => "should end with .jpg/.png/.gif" }
 
   def finished?
     cropped_image_url.present?
