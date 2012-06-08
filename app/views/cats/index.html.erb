@@ -3,7 +3,11 @@
 <p><%= link_to 'New cat', new_cat_path %></p>
 
 <div>
-  <%= render :partial=>'cats', :locals=>{:cats=>@cats.finished} %>
+  <% @cats.finished.each do |cat| %>
+    <%= link_to cat do %>
+      <%= image_tag(cat.cropped_image_url, :style=>'width: 50px;') %>
+    <% end %>
+  <% end %>
 </div>
 
 <h2>Pending cats</h2>
