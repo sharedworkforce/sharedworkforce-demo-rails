@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Good news!</h1>
+
+    <p>Your cat has been processed.</p>
+
+    <p>
+      <b>Original description:</b>
+      <%= @cat.description %>
+    </p>
+
+    <% unless @cat.rejected? %>
+      <p>
+        <b>Improved description:</b>
+        <%= @cat.improved_description %>
+      </p>
+    <% end %>
+
+    <p>
+      <b>Tags:</b>
+      <%= @cat.tags %>
+    </p>
+
+    <p>
+      <b>Photo:</b><br />
+      <%= image_tag @cat.image_url if @cat.image_url %>
+    </p>
+
+    <% unless @cat.rejected? %>
+      <p>
+        <b>Upside down photo</b><br />
+        <% if @cat.rotated_image_url %>
+          <%= image_tag @cat.rotated_image_url %>
+        <% end %>
+      </p>
+
+      <p>
+        <b>Cropped photo</b><br />
+        <% if @cat.cropped_image_url %>
+          <%= image_tag @cat.cropped_image_url %>
+        <% end %>
+      </p>
+    <% end %>
+
+    <h2>Log</h2>
+
+    <p>Cat created at <%= @cat.created_at.to_s(:short) %>
+      <ol>
+        <% @cat.audits.each do |a| %>
+          <li><%= distance_of_time_in_words(a.created_at, a.cat.created_at) %> later: <%= a.comment %></li>
+        <% end %>
+      </ol>
+    </p>
+
+    <p>If you enjoyed it, you can try again at <a href="http://catsify.herokuapp.com">catsify.herokuapp.com</a>. If this all seems pointless, check out <a href="http://www.sharedworkforce.com">sharedworkforce.com</a> for more information on how this can be useful.</p>
+
+  </body>
+</html>

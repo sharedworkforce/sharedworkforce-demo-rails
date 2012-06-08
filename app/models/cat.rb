@@ -2,12 +2,18 @@ class Cat < ActiveRecord::Base
 
   has_many :audits
   after_save :tag_image, :if=>:image_url_changed?
+  after_save :send_notification, :if => lambda { notification_email.present? && finished? }
+
   scope :finished, where('cropped_image_url IS NOT NULL')
   scope :rejected, where(:rejected => true)
   scope :pending, where('rejected = ? AND cropped_image_url IS NOT NULL', false)
 
   validates :description, :presence=>true
   validates :image_url, :presence=>true
+
+  def finished?
+    cropped_image_url.present?
+  end
 
   def pending?
     cropped_image_url.blank? && !rejected
@@ -24,6 +30,10 @@ class Cat < ActiveRecord::Base
 
   def audit(comment)
     audits << Audit.new(:comment=>comment)
+  end
+
+  def send_notification
+    CatMailer.summary_email(self).deliver
   end
 
 end
