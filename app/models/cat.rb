@@ -9,6 +9,10 @@ class Cat < ActiveRecord::Base
   validates :description, :presence=>true
   validates :image_url, :presence=>true
 
+  def pending?
+    cropped_image_url.blank? && !rejected
+  end
+
   def tag_image
   	TagCatTask.create(self)
   end

@@ -1,19 +1,25 @@
 <p id="notice"><%= notice %></p>
 
+<% if @cat.pending? %>
+  <p>Please wait while our workers process your cat. It usually only takes a few minutes. You can refresh this page to see the results.</p>
+<% end %>
+
 <p>
   <b>Original description:</b>
   <%= @cat.description %>
 </p>
 
-<p>
-  <b>Improved description:</b>
-  <%= @cat.improved_description || 'Pending.' %>
-</p>
+<% unless @cat.rejected? %>
+	<p>
+	  <b>Improved description:</b>
+	  <%= @cat.improved_description || 'Pending.' %>
+	</p>
 
-<p>
-  <b>Tags:</b>
-  <%= @cat.tags || 'Pending' %>
-</p>
+	<p>
+	  <b>Tags:</b>
+	  <%= @cat.tags || 'Pending' %>
+	</p>
+<% end %>
 
 <p>
   <b>Photo:</b><br />
