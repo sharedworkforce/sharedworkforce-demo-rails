@@ -1,12 +1,12 @@
 <h1>Upside down cat eyes</h1>
 <p class="notice">This is a live sandbox test site for <a href="http://www.sharedworkforce.com">Shared Workforce</a>.</p>
 
-<p>Please give it a try by <%= link_to 'adding a new cat', new_cat_path %></p>
+<p>Please give it a try by <%= link_to 'adding a new cat', new_cat_path %>.</p>
 
 <div>
   <% @cats.finished.each do |cat| %>
     <%= link_to cat do %>
-      <%= image_tag(cat.cropped_image_url, :style=>'width: 50px;') %>
+      <%= image_tag(cat.cropped_image_url, :style=>'height: 50px;') %>
     <% end %>
   <% end %>
 </div>
