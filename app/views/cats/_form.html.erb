@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :image_url, "Find the URL of a cat photo and paste it here." %> (<a id="random-cat" href="#">Or get a random one</a>)<br />
+    <%= f.label :image_url, "Find the URL of a cat photo and paste it here." %> (Or <a id="random-cat" href="#">get a random one</a>)<br />
     <%= f.text_field :image_url, :size=>60 %>
-  </div>
 
-  <div>
-    <img style="width: 120px" id="chosen-image" />
-  </div>
-
-  <div class="field">
-    <%= f.label :description, "Roughly describe a cat in a few words (e.g. four legs, tail, fluffy)" %><br />
-    <%= f.text_area :description, :rows=>4 %>
+      <div>
+        <img style="width: 120px" id="chosen-image" />
+      </div>
   </div>
 
   <div class="field">
-    <%= f.label :notification_email, "Email address: (optional, it will take a few minutes for your cat to be processed. If you would like an email summary when it's complete, enter your email.)" %><br />
+    <%= f.label :description, "Roughly describe a cat in a few words (e.g. four legs, tail, fluffy)" %>
+    <%= f.text_area :description, :rows=>3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notification_email, "Email address: (optional, it will take a few minutes for your cat to be processed. If you would like an email summary when it's complete, enter your email.)" %>
     <%= f.text_field :notification_email %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn" %>
   </div>
 <% end %>
 

@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SwDemo</title>
+  <title>Shared Workforce Demo - Upsidedown Cats Eyes</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="/">Upside down cat eyes</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li><%= link_to "Browse Cats", cats_path %></li>
+          <li><%= link_to "Add a new cat +", new_cat_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="span9"><%= yield %></div>
+    <div class="span3">
+      <h2>What is this?</h2>
+      <p>This is a live sandbox demo for <%= link_to 'Shared Workforce', 'http://www.sharedworkforce.com' %>.</p>        
+      <p>Shared Workforce is a platform for managing and completing repetitive tasks that require human intelligence. For example, tagging photos, approving text and answering simple questions.</p>
+      <h3><%= link_to 'Get the Heroku Addon', 'https://addons.heroku.com/sharedworkforce' %></h3>
+      <h3><%= link_to 'Get the Rails Gem', 'https://github.com/sharedworkforce/sharedworkforce' %></h3>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
