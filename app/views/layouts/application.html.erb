@@ -9,6 +9,9 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript">
+  <!-- $('.dropdown-toggle').dropdown() -->
+  </script>
 </head>
 <body>
 
@@ -16,11 +19,20 @@
   <div class="navbar-inner">
     <div class="container">
       <a class="brand" href="/">Catsify - Shared Workforce Demo</a>
-      <div class="nav-collapse" style="float:right;">
-        <ul class="nav">
-          <li><%= link_to 'www.sharedworkforce.com', 'http://www.sharedworkforce.com' %></li>
-        </ul>
-      </div><!-- .nav-collapse -->
+
+      <ul class="nav pull-right">
+        <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse cats<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li><%= link_to 'Approved Cats', approved_cats_path %></li>
+      <li><%= link_to 'Rejected Cats', rejected_cats_path %></li>
+      <li><%= link_to 'Pending Cats', pending_cats_path %></li>
+      <li class="divider"></li>
+      <li><%= link_to 'Upside-down cats eyes', eyes_cats_path %></li>
+    </ul>
+  </li>
+</ul>
+
     </div><!-- .container -->
   </div><!-- .navbar-inner -->
 </div><!-- .navbar .navbar-fixed-top -->
@@ -29,7 +41,7 @@
   <div class="row">
     <div class="span9">
       <%= yield %>
-    </div>
+    </div><!-- .span9 -->
     <div class="span3">
       <% unless current_page?(:controller => 'cats', :action => 'new')  %>
         <p><%= link_to "Add a new cat +", new_cat_path, :class => 'btn btn-primary btn-large' %></p>
