@@ -2,7 +2,7 @@ class CatsController < ApplicationController
   # GET /cats
   # GET /cats.json
   def index
-    @cats = Cat.scoped
+    @cats = Cat.scoped.order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
