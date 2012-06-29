@@ -1,60 +1,65 @@
 <%= content_tag :p, notice, :class => "alert alert-success" unless notice.blank? %>
 
+<%= content_tag :p, 'Please wait while our workers process your cat. It usually only takes a few minutes. You can <a href="#" onclick="window.location.reload();">refresh this page</a> to see the results.'.html_safe, :class => "alert alert-info" if @cat.pending? %>
+
 <div class="back">
 	<%= link_to '← Back to home', root_path %>
 </div>
 
-<% if @cat.pending? %>
-  <p>Please wait while our workers process your cat. It usually only takes a few minutes. You can refresh this page to see the results.</p>
-<% end %>
-
-<p>
-  <b>Original description:</b>
-  <%= @cat.description %>
-</p>
 
 <% unless @cat.rejected? %>
-	<p>
-	  <b>Improved description:</b>
-	  <%= @cat.improved_description || 'Pending.' %>
-	</p>
+	<div class="row">
+		<div class="span4">
+			<h3>Original Photo</h3>
+  		<%= image_tag @cat.image_url if @cat.image_url %>
+  		<hr />
+  	</div>
+  	<div class="span4">
+  		<h3>Upside down photo</h3>
+			<% if @cat.rotated_image_url %>
+				<%= image_tag @cat.rotated_image_url %>
+			<% else %>
+			  <em>Pending.</em>
+			<% end %>
+			<hr />
+  	</div>
+	</div>
+
+	<div class="row">
+		<div class="span4">
+			<h3>Original description</h3>
+  		<p><%= @cat.description %></p>
+  		<hr />
+		</div>
+
+		<div class="span4">
+			<h3>Improved description</h3>
+		  <p><%= @cat.improved_description || 'Pending.' %></p>
+		  <hr />
+		  <h3>Tags</h3>
+  		<p><%= @cat.tags || 'Pending' %></p>
+  		<hr />
+  		<h3>Cropped photo</h3>
+			<% if @cat.cropped_image_url %>
+				<%= image_tag @cat.cropped_image_url %>
+			<% else %>
+		  	<em>Pending.</em>
+			<% end %>
+		</div>
+	</div>
 <% end %>
 
-<p>
-  <b>Tags:</b>
-  <%= @cat.tags || 'Pending' %>
-</p>
-
-<p>
-  <b>Photo:</b><br />
-  <%= image_tag @cat.image_url if @cat.image_url %>
-</p>
-
-<% unless @cat.rejected? %>
-	<p>
-		<b>Upside down photo</b><br />
-		<% if @cat.rotated_image_url %>
-			<%= image_tag @cat.rotated_image_url %>
-		<% else %>
-		  Pending.
-		<% end %>
-	</p>
-
-	<p>
-		<b>Cropped photo</b><br />
-		<% if @cat.cropped_image_url %>
-			<%= image_tag @cat.cropped_image_url %>
-		<% else %>
-		  Pending.
-		<% end %>
-	</p>
-<% end %>
-
-<p>Cat created at <%= @cat.created_at.to_s(:short) %>
-	<ol>
-		<% @cat.audits.each do |a| %>
-			<li><%= distance_of_time_in_words(a.created_at, a.cat.created_at) %> later: <%= a.comment %></li>
-		<% end %>
-	</ol>
-</p>
-<%= link_to 'Back to all cats', cats_path %>
+<br class="clearfix" />
+<div class="row">
+	<div class="span8">
+		<div class="well">
+			<h2 style="margin-bottom:0.5em;">Activity Log</h2>
+			<ul>
+				<li><%= @cat.created_at.to_s(:long) %> - New cat added.</li>
+				<% @cat.audits.each do |a| %>
+					<li><%= distance_of_time_in_words(a.created_at, a.cat.created_at) %> later - <%= a.comment %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>
