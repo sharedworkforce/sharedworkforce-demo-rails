@@ -1,0 +1,7 @@
+<% unless @cats.rejected.empty? %>
+	<h1 class="hr">Rejected cats</h1>
+	<%= render :partial=>'cats', :locals=>{:cats=>@cats.rejected} %>
+<% else %>
+  <h1 class="hr">No rejected cats</h1>
+  <p><%= link_to '← Back', :back, :class => 'btn'  %></p>
+<% end %>

@@ -63,4 +63,31 @@ class CatsController < ApplicationController
       end
     end
   end
+
+  def approved
+    @cats = Cat.scoped
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @cats }
+    end
+  end
+
+  def pending
+    @cats = Cat.scoped
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @cats }
+    end
+  end
+
+  def rejected
+    @cats = Cat.scoped
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @cats }
+    end
+  end
 end

@@ -1,6 +1,6 @@
 <div class="hero-unit">
   <h1>What is this?</h1>
-  <p>This demo gives you a good idea of the kind of human powered tasks you can complete to Shared Workforce. Imagine you have lots of user generated photos of cats. You want to take those photos and:</p>
+  <p>This demo gives you a good idea of the kind of human powered tasks you can complete in Shared Workforce. Imagine you have lots of user generated photos of cats. With each photo you would like to:</p>
   <ul>
   	<li>Check whether it's a cat</li>
   	<li>Improve the description</li>
@@ -8,23 +8,23 @@
   	<li>Rotate the photo</li>
   	<li>Crop the cats eye</li>
   </ul>
-  <p>Remember, there is a real team of people powering these tasks. Why not try it now:</p>
-  <p><%= link_to "Add a new cat +", new_cat_path, :class => 'btn btn-primary btn-large' %> or <%= link_to 'Get the source code', 'https://github.com/sharedworkforce/sharedworkforce-demo-rails' %></p>
+  <p>With Shared Workforce you can outsource tasks like through our API. We have a team of people completing tasks in near real time. Why not try it now:</p>
+  <p><%= link_to "Add a new cat +", new_cat_path, :class => 'btn btn-primary btn-large' %> or <%= link_to 'Get the source code from github', 'https://github.com/sharedworkforce/sharedworkforce-demo-rails' %></p>
 </div>
 
 <% unless @cats.finished.empty? %>
-	<h2>Approved cats</h2>
-	<%= render :partial=>'cats', :locals=>{:cats=>@cats.finished} %>
+	<h2 class="hr">Approved cats <span class="see-all"><%= link_to '(see all)', approved_cats_path %></span></h2>
+	<%= render :partial=>'cats', :locals=>{:cats=>@cats.finished.limit(8)} %>
 <% end %>
 	
 <% unless @cats.pending.empty? %>
-	<h2>Pending cats</h2>
-	<%= render :partial=>'cats', :locals=>{:cats=>@cats.pending} %>
+	<h2>Pending cats <span class="see-all"><%= link_to '(see all)', pending_cats_path %></span></h2>
+	<%= render :partial=>'cats', :locals=>{:cats=>@cats.pending.limit(8)} %>
 <% end %>
 	
 <% unless @cats.rejected.empty? %>
-	<h2>Rejected cats</h2>
-	<%= render :partial=>'cats', :locals=>{:cats=>@cats.rejected} %>
+	<h2>Rejected cats <span class="see-all"><%= link_to '(see all)', rejected_cats_path %></span></h2>
+	<%= render :partial=>'cats', :locals=>{:cats=>@cats.rejected.limit(8)} %>
 <% end %>
 
 
