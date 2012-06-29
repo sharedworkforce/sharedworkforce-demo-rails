@@ -15,34 +15,32 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <a class="brand" href="/">Upside down cat eyes</a>
-      <div class="nav-collapse">
+      <a class="brand" href="/">Upside down cat eyes - Shared Workforce Demo</a>
+      <div class="nav-collapse" style="float:right;">
         <ul class="nav">
-          <li><%= link_to "Browse Cats", cats_path %></li>
-          <li><%= link_to "Add a new cat +", new_cat_path %></li>
+          <li><%= link_to 'www.sharedworkforce.com', 'http://www.sharedworkforce.com' %></li>
         </ul>
-      </div>
-    </div>
-  </div>
-</div>
+      </div><!-- .nav-collapse -->
+    </div><!-- .container -->
+  </div><!-- .navbar-inner -->
+</div><!-- .navbar .navbar-fixed-top -->
 
 <div class="container">
   <div class="row">
-    <div class="span9"><%= yield %></div>
-    <div class="span3">
-      <h2>What is this?</h2>
-      <p>This is a live sandbox demo for <%= link_to 'Shared Workforce', 'http://www.sharedworkforce.com' %>.</p>        
-      <p>Shared Workforce is a platform for managing and completing repetitive tasks that require human intelligence. For example, tagging photos, approving text and answering simple questions.</p>
-      
-      <h3><p>You can view and download <a href="https://github.com/sharedworkforce/sharedworkforce-demo-rails">the source code for this app on github</a>.</p></h3>
+    <div class="span9">
+      <%= yield %>
     </div>
-  </div>
-</div>
+    <div class="span3">
+      <% unless current_page?(:controller => 'cats', :action => 'new')  %>
+        <p><%= link_to "Add a new cat +", new_cat_path, :class => 'btn btn-primary btn-large' %></p>
+        <br />
+      <% end %>
+      <h3>Find out more</h3>
+      <p><%= link_to 'Shared Workforce', 'http://www.sharedworkforce.com' %> is a platform for managing and completing repetitive tasks that require human intelligence. For example, tagging photos, approving text and answering simple questions.</p>
+      <p>You can view and download <a href="https://github.com/sharedworkforce/sharedworkforce-demo-rails">the source code for this app on github</a>.</p>
+    </div><!-- .span3 -->
+  </div><!-- .row -->
+</div><!-- .container -->
 
 </body>
 </html>
