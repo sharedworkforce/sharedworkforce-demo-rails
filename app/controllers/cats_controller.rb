@@ -65,7 +65,7 @@ class CatsController < ApplicationController
   end
 
   def approved
-    @cats = Cat.scoped
+    @cats = Cat.scoped.order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -74,7 +74,7 @@ class CatsController < ApplicationController
   end
 
   def pending
-    @cats = Cat.scoped
+    @cats = Cat.scoped.order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -83,7 +83,7 @@ class CatsController < ApplicationController
   end
 
   def rejected
-    @cats = Cat.scoped
+    @cats = Cat.scoped.order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb

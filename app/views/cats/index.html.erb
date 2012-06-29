@@ -13,7 +13,7 @@
 </div>
 
 <% unless @cats.finished.empty? %>
-	<h2 class="hr">Approved cats <span class="see-all"><%= link_to '(see all)', approved_cats_path %></span></h2>
+	<h2 class="hr">Latest approved cats <span class="see-all"><%= link_to '(see all)', approved_cats_path %></span></h2>
 	<%= render :partial=>'cats', :locals=>{:cats=>@cats.finished.limit(4)} %>
 <% end %>
 	
@@ -23,7 +23,7 @@
 <% end %>
 	
 <% unless @cats.rejected.empty? %>
-	<h2 class="hr">Rejected cats <span class="see-all"><%= link_to '(see all)', rejected_cats_path %></span></h2>
+	<h2 class="hr">Latest rejected cats <span class="see-all"><%= link_to '(see all)', rejected_cats_path %></span></h2>
 	<%= render :partial=>'cats', :locals=>{:cats=>@cats.rejected.limit(4)} %>
 <% end %>
 
