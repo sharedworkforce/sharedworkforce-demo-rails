@@ -2,7 +2,7 @@
 	<%= link_to '← Back to home', root_path %>
 </div>
 <% unless @cats.rejected.empty? %>
-	<h1 class="hr">Rejected cats</h1>
+	<h1 class="hr"><%= pluralize(@cats.pending.count.to_s, 'cat') %> rejected</h1>
 	<p>Hmm, I wonder why these photos didn't make it past our moderation team? Choose a photo to find out.</p>
 	<%= render :partial=>'cats', :locals=>{:cats=>@cats.rejected} %>
 <% else %>
