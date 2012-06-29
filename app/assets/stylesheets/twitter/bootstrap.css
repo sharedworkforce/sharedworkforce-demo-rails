@@ -4962,6 +4962,10 @@ a.badge:hover {
   color: inherit;
 }
 
+.hero-unit p.hint {
+  font-size: 12px;
+}
+
 .pull-right {
   float: right;
 }
