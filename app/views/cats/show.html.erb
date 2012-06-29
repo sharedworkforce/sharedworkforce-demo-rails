@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<%= content_tag :p, notice, :class => "alert alert-success" unless notice.blank? %>
+
+<div class="back">
+	<%= link_to '← Back to home', root_path %>
+</div>
 
 <% if @cat.pending? %>
   <p>Please wait while our workers process your cat. It usually only takes a few minutes. You can refresh this page to see the results.</p>

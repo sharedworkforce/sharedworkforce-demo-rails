@@ -1,7 +1,10 @@
+<div class="back">
+	<%= link_to '← Back to home', root_path %>
+</div>
 <% unless @cats.pending.empty? %>
-	<h1 class="hr">Pending cats</h1>
+	<h1 class="hr"><%= @cats.pending.count.to_s %> cats waiting to be approved</h1>
 	<%= render :partial=>'cats', :locals=>{:cats=>@cats.pending} %>
 <% else %>
-  <h1 class="hr">No pending cats</h1>
-  <p><%= link_to '← Back', :back, :class => 'btn'  %></p>
+  <h1 class="hr">No cats are waiting...</h1>
+  <p>Looks like our workforce is bang up to date. Why not <%= link_to 'send them another cat', new_cat_path %></p>
 <% end %>
