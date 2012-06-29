@@ -23,7 +23,7 @@
 <% end %>
 	
 <% unless @cats.rejected.empty? %>
-	<h2 class="hr">Latest rejected cats <span class="see-all"><%= link_to "See all {@cats.rejected.count.to_s} →", rejected_cats_path %></span></h2>
+	<h2 class="hr">Latest rejected cats <span class="see-all"><%= link_to "See all #{@cats.rejected.count.to_s} →", rejected_cats_path %></span></h2>
 	<%= render :partial=>'cats', :locals=>{:cats=>@cats.rejected.limit(4)} %>
 <% end %>
 
