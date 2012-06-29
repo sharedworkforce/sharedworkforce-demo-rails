@@ -2,7 +2,7 @@
 	<%= link_to '← Back to home', root_path %>
 </div>
 <% unless @cats.finished.empty? %>
-	<h1 class="hr"><%= pluralize(@cats.pending.count.to_s, 'cat') %> approved</h1>
+	<h1 class="hr"><%= pluralize(@cats.finished.count.to_s, 'cat') %> approved</h1>
 	<%= render :partial=>'cats', :locals=>{:cats=>@cats.finished} %>
 <% else %>
 	<h1 class="hr">No approved cats</h1>
