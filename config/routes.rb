@@ -3,6 +3,7 @@ SwDemo::Application.routes.draw do
   	get :approved, :on => :collection
   	get :pending, :on => :collection
   	get :rejected, :on => :collection
+  	get :eyes, :on => :collection
   end
   root :to => 'cats#index'
 end

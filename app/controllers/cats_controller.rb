@@ -90,4 +90,13 @@ class CatsController < ApplicationController
       format.json { render json: @cats }
     end
   end
+
+  def eyes
+    @cats = Cat.scoped.order('created_at DESC')
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @cats }
+    end
+  end
 end

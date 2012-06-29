@@ -1,0 +1,13 @@
+<div class="back">
+	<%= link_to '← Back to home', root_path %>
+</div>
+<% unless @cats.finished.empty? %>
+	<h1 class="hr"><%= @cats.finished.count.to_s %> upside down cats eyes</h1>
+	<p>Each photo has been rotated and cropped by our team.</p>
+	<% @cats.finished.each do |cat| %>
+      <%= link_to(image_tag(cat.cropped_image_url, :class => "thumbnail", :style=>"max-width:100px; display:inline;"), cat) %>
+    <% end %>
+<% else %>
+	<h1 class="hr">No cats eyes :(</h1>
+  <p><%= link_to '← Back', :back, :class => 'btn'  %></p>
+<% end %>

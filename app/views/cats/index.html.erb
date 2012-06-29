@@ -27,4 +27,11 @@
 	<%= render :partial=>'cats', :locals=>{:cats=>@cats.rejected.limit(4)} %>
 <% end %>
 
+<% unless @cats.finished.empty? %>
+  <h2 class="hr">Upside down cats eyes <span class="see-all"><%= link_to "See all #{@cats.finished.count.to_s} →", eyes_cats_path %></span></h2>
+    <% @cats.finished.limit(8).each do |cat| %>
+      <%= link_to(image_tag(cat.cropped_image_url, :class => "thumbnail", :style=>"max-width:100px; display:inline;"), cat) %>
+    <% end %>
+<% end %>
+
 
