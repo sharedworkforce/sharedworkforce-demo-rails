@@ -3,7 +3,7 @@
 </div>
 <% unless @cats.rejected.empty? %>
 	<h1 class="hr">Rejected cats</h1>
-	<p>Hmm, I wonder why these photos didn't make it past our moderation team. Click on a photo to find out.</p>
+	<p>Hmm, I wonder why these photos didn't make it past our moderation team? Choose a photo to find out.</p>
 	<%= render :partial=>'cats', :locals=>{:cats=>@cats.rejected} %>
 <% else %>
   <h1 class="hr">No rejected cats</h1>
