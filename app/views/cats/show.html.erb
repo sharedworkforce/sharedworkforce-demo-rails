@@ -10,11 +10,13 @@
 <% unless @cat.rejected? %>
 	<div class="row">
 		<div class="span4">
+			<hr />
 			<h3>Original Photo</h3>
   		<%= image_tag @cat.image_url if @cat.image_url %>
   		<hr />
   	</div>
   	<div class="span4">
+  		<hr />
   		<h3>Upside down photo</h3>
 			<% if @cat.rotated_image_url %>
 				<%= image_tag @cat.rotated_image_url %>
