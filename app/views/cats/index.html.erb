@@ -1,14 +1,14 @@
 <div class="hero-unit">
   <h1>What is this?</h1>
-  <p>This demo gives you a good idea of the kind of human powered tasks you can complete in Shared Workforce. Imagine you have lots of user generated photos of cats. With each photo you would like to:</p>
+  <p>This demo gives you a good idea of the kind of human powered tasks you can complete with Shared Workforce. Imagine you have lots of user generated photos of cats. With each photo you would like to:</p>
   <ul>
   	<li>Check whether it's a cat</li>
   	<li>Improve the description</li>
   	<li>Tag the cat (e.g. soft, fluffy etc.)</li>
-  	<li>Rotate the photo</li>
-  	<li>Crop the cats eye</li>
+  	<li>Rotate the photo so that the eyes are upside-down</li>
+  	<li>Crop the cats eye's</li>
   </ul>
-  <p>With Shared Workforce you can outsource tasks like this through our API. We have a team of people completing tasks in near real time. Why not try it now:</p>
+  <p>With Shared Workforce, you can outsource tasks like these through <%= link_to 'our API', 'http://www.sharedworkforce.com/docs' %>. We have a team of people completing tasks in near real time. Why not try it now:</p>
   <p><%= link_to "Add a new cat +", new_cat_path, :class => 'btn btn-primary btn-large' %> or <%= link_to 'Get the source code from github', 'https://github.com/sharedworkforce/sharedworkforce-demo-rails' %></p>
 </div>
 
@@ -28,7 +28,7 @@
 <% end %>
 
 <% unless @cats.finished.empty? %>
-  <h2 class="hr">Upside down cats eyes <span class="see-all"><%= link_to "See all #{@cats.finished.count.to_s} →", eyes_cats_path %></span></h2>
+  <h2 class="hr">Upside-down cats eyes <span class="see-all"><%= link_to "See all #{@cats.finished.count.to_s} →", eyes_cats_path %></span></h2>
     <% @cats.finished.limit(6).each do |cat| %>
       <%= link_to(image_tag(cat.cropped_image_url, :class => "thumbnail", :style=>"max-width:100px; display:inline;"), cat) %>
     <% end %>
