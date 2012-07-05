@@ -48,13 +48,13 @@
   </head>
   <body>
 
-  <div class="wrapper">
+  <div class="wrapper" style="background-color:#333333; width:840px; padding:10px; ">
 
-  <div class="header">
+  <div class="header" style="background-color:#333333; width:830px; padding:5px 5px 15px;">
     <a href="http://www.sharedworkforce.com"><img src="http://www.sharedworkforce.com/images/web_address.png" alt="Shared Workforce"/></a>
   </div>
 
-  <div class="container">
+  <div class="container" style="width:820px; background-color:#FFFFFF; padding:10px;">
     <h1>Good news!</h1>
 
     <p>Your cat has been processed by our team.</p>
@@ -98,7 +98,7 @@
         </td>
         <% unless @cat.rejected? %>
           <td style="width:50%">
-            <p><strong>Cropped photo</strong><br />
+            <p><strong>Upside-down cats eyes</strong><br />
               <% if @cat.cropped_image_url %>
                 <%= image_tag @cat.cropped_image_url %>
               <% end %>
