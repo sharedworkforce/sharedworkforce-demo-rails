@@ -9,6 +9,7 @@ class Cat < ActiveRecord::Base
   scope :pending, where('rejected = ? AND cropped_image_url IS NULL', false)
 
   validates :description, :presence=>true
+  validates :notification_email, :presence=>true
   validates :image_url, :presence=>true
   validates :image_url, :format => { :with => /\.(png|jpg|gif)$/, :message => "should end with .jpg/.png/.gif" }
 
