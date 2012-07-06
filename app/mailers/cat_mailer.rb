@@ -1,5 +1,5 @@
 class CatMailer < ActionMailer::Base
-  default from: "sam@sharedworkforce.com"
+  default from: "\"Shared Workforce\" <erica@sharedworkforce.com>"
 
   def summary_email(cat)
     @cat = cat
