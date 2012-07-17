@@ -25,16 +25,16 @@ class TagCatTaskTest < ActiveSupport::TestCase
 
 	test "rotate after accepting" do
 		task = TagCatTask.new @cat
+		RotateCatTask.expects(:create).with(@cat)
 		task.tag_cat(@cat, [{:answer=>TagCatTask::ACCEPT.first}])
 		assert_match /#{TagCatTask::ACCEPT.first}/, @cat.audits.last.comment
-		RotateCatTask.expects(:create).with(@cat)
 	end
 
 	test "improve description after accepting" do
 		task = TagCatTask.new @cat
+		ImproveDescriptionOfCatTask.expects(:create).with(@cat)
 		task.tag_cat(@cat, [{:answer=>TagCatTask::ACCEPT.first}])
 		assert_match /#{TagCatTask::ACCEPT.first}/, @cat.audits.last.comment
-		ImproveDescriptionOfCatTask.expects(:create).with(@cat)
 	end
 
 end
