@@ -44,14 +44,6 @@ class UserTest < ActiveSupport::TestCase
     @cat.save!
   end
 
-  test "no notification if email not present" do
-    @cat.notification_email = nil
-    @cat.stubs(:finished?).returns(true)
-
-    @cat.expects(:send_notification).never
-    @cat.save!
-  end
-
   test "no notification if not finished" do
     @cat.stubs(:finished?).returns(false)
     @cat.notification_email = 'berry@example.com'
