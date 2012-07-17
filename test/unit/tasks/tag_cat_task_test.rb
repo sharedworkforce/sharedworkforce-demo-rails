@@ -23,6 +23,12 @@ class TagCatTaskTest < ActiveSupport::TestCase
 		assert @cat.rejected?
 	end
 
+	test "rejecting a cat sends a notification" do
+		task = TagCatTask.new @cat
+		@cat.expects(:send_notification).once
+		task.tag_cat(@cat, [{:answer=>TagCatTask::REJECT.first}])
+	end
+
 	test "rotate after accepting" do
 		task = TagCatTask.new @cat
 		RotateCatTask.expects(:create).with(@cat)

@@ -28,6 +28,7 @@ class Cat < ActiveRecord::Base
   def reject!(comment)
     update_attribute(:rejected, true)
     audit "Rejected because #{comment}"
+    send_notification
   end
 
   def audit(comment)
