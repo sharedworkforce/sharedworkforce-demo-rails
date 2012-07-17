@@ -11,7 +11,7 @@ class CropCatTaskTest < ActiveSupport::TestCase
 		assert_equal @cat.rotated_image_url, task.image_url
 	end
 
-	test "rotate a cat" do
+	test "crop a cat" do
 		task = CropCatTask.new @cat
 		task.crop_cat(@cat, [{:new_image_url=>'http://example.com/cropped_image.jpg'}])
 		assert_equal 'http://example.com/cropped_image.jpg', @cat.cropped_image_url
