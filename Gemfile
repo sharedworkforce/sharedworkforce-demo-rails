@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.5'
-gem 'shared_workforce', '~> 0.2.11'
+gem 'shared_workforce', '~> 0.2.12'
 gem 'jquery-rails'
 gem 'pg'
 
