@@ -22,7 +22,7 @@ class Cat < ActiveRecord::Base
   end
 
   def tag_image
-  	TagCatTask.create(self)
+    TagCatTask.create(self)
   end
 
   def reject!(comment)
