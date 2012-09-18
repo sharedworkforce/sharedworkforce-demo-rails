@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.5'
-gem 'shared_workforce', '~> 0.2.12'
-gem 'jquery-rails'
+gem 'shared_workforce', '~> 0.2.13'
 gem 'pg'
 
 group :assets do
