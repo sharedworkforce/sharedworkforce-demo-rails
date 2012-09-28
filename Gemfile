@@ -2,8 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.5'
 gem 'jquery-rails'
-gem 'shared_workforce', '~> 0.2.13'
+gem 'shared_workforce', '~> 0.3.0'
 gem 'pg'
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -14,12 +15,12 @@ group :assets do
 end
 
 group :development do
-	gem 'foreman'
 	gem 'letter_opener'
 end
 
 group :test, :development do
 	gem 'sqlite3'
+  gem 'dotenv'
 end
 
 group :test do

@@ -77,17 +77,25 @@ Insert your key:
 SHAREDWORKFORCE_API_KEY=my-api-key
 ```
 
-Once you have entered your API key, start the app using Foreman.
+Once you have entered your API key, start the app.
 
 ```term
-  $ foreman start
+  $ rails s
 ```
 
-Open the app at http://localhost:5000
+Open the app at http://localhost:3000
+
+There is a rake task to collect the task responses during development.
+
+```
+  $ rake sw:collect
+```
+
+Note: the rake task isn't needed in production, the webhook will take care of it.
 
 ## Creating a cat
 
-Visit `http://localhost:5000` and follow the link to create a cat with an image url. Once the cat is saved, it will be sent to Shared Workforce for moderation. Typically it will take anything from a couple of minutes to an hour for your task to be completed.
+Visit `http://localhost:3000` and follow the link to create a cat with an image url. Once the cat is saved, it will be sent to Shared Workforce for moderation. Typically it will take anything from a couple of minutes to an hour for your task to be completed.
 
 ## Deploying to Heroku
 
