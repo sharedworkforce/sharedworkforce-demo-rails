@@ -136,7 +136,7 @@ DEPENDENCIES
   letter_opener
   mocha
   pg
-  rails (= 3.2.11)
+  rails (~> 3.2)
   sass-rails (~> 3.2.3)
   shared_workforce (~> 0.3.0)
   sqlite3
